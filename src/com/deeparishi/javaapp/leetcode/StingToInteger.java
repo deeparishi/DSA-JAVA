@@ -12,16 +12,16 @@ public class StingToInteger {
     static int myAtoi(String s) {
 
         String element = s.trim();
-        String a = "";
+        StringBuilder a = new StringBuilder();
         char[] arr = element.toCharArray();
         if (arr[0] == '-' || arr[0] == '+') {
-            a += arr[0];
+            a.append(arr[0]);
         }
         for (char c : arr) {
             if (Character.isDigit(c)) {
-                a += c;
+                a.append(c);
             }
         }
-        return Integer.parseInt(a);
+        return Integer.parseInt(a.toString());
     }
 }
