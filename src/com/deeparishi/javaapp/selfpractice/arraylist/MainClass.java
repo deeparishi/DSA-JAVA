@@ -1,6 +1,5 @@
 package com.deeparishi.javaapp.selfpractice.arraylist;
 
-import java.util.List;
 
 public class MainClass {
 
@@ -32,18 +31,10 @@ public class MainClass {
         my.add("Deevsvpa");
         my.add("vsfvs");
 
-        my.print();
-        System.out.println();
-        System.out.println();
-        my.removeFirst();
-        my.print();
-        System.out.println();
-        System.out.println();
-        my.removeLast();
-        System.out.println(STR."Size\{my.size()}");
-        my.print();
-
-
-
+        for (int i = 0; i < my.size(); i++) {
+            System.out.println(my.get(i));
+        }
+   for (String m : my)
+       System.out.println(m);
     }
 }

@@ -1,8 +1,9 @@
 package com.deeparishi.javaapp.selfpractice.arraylist;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class ArrayList<T> {
+public class ArrayList<T> implements Iterable<T> {
 
     private int size;
 
@@ -66,7 +67,7 @@ public class ArrayList<T> {
     @SuppressWarnings("unchecked")
     public T get(int index) {
         if (index > pointer)
-           throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayIndexOutOfBoundsException();
 
         return (T) array[index];
     }
@@ -135,4 +136,22 @@ public class ArrayList<T> {
         }
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < pointer;
+            }
+
+            @SuppressWarnings("unchecked")
+            @Override
+            public T next() {
+                return (T) array[currentIndex++];
+            }
+        };
+    }
 }
