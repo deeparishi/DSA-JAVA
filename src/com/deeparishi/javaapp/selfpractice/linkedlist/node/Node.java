@@ -1,10 +1,11 @@
 package com.deeparishi.javaapp.selfpractice.linkedlist.node;
 
-public class Node {
+public class Node <T> {
 
-    public int value;
+    public Node <T> prev;
 
-    public Node next;
+    public T value;
 
+    public Node <T> next;
 
 }
