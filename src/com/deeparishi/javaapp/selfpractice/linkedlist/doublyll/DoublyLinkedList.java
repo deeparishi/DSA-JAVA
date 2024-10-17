@@ -3,6 +3,7 @@ package com.deeparishi.javaapp.selfpractice.linkedlist.doublyll;
 import com.deeparishi.javaapp.selfpractice.linkedlist.node.Node;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class DoublyLinkedList <T> implements Iterable<T> {
 
@@ -79,7 +80,7 @@ public class DoublyLinkedList <T> implements Iterable<T> {
             head = node;
         } else {
             Node<T> curr = head;
-            // Find the node at (index - 1) position
+
             for (int i = 0; i < index - 1; i++) {
                 curr = curr.next;
             }
@@ -95,6 +96,80 @@ public class DoublyLinkedList <T> implements Iterable<T> {
         size++;
     }
 
+    public boolean delete(T value){
+
+        if(head == null)
+            return false;
+
+        Node temp = head;
+        int index = 0;
+
+        while (temp != null  && temp.value != value){
+            index++;
+            temp = temp.next;
+        }
+        return deleteAt(index);
+    }
+
+    public boolean deleteAt(int index) {
+
+        if(head == null)
+            return false;
+
+        if(index > size)
+            return false;
+
+        if(index == 0){
+            if(head == tail){
+                head = null;
+                tail = null;
+                size--;
+                return true;
+            }
+
+            head = head.next;
+            head.prev = null;
+            size--;
+            return true;
+        } else if(index == size - 1){
+            Node prev = tail.prev;
+            tail.prev.next = null;
+            tail = prev;
+            size--;
+            return true;
+        }else{
+            Node temp = head;
+            int location = 0;
+            while (location < index - 1){
+                location++;
+                temp = temp.next;
+            }
+
+            temp.next = temp.next.next;
+            temp.next.prev = temp;
+            size--;
+            return true;
+        }
+    }
+
+    public boolean deleteEntireList(){
+
+        if(head == null)
+            return false;
+
+        Node temp = head;
+
+        while(temp != null){
+            temp.prev = null;
+            temp = temp.next;
+        }
+
+        head = null;
+        tail = null;
+
+        return true;
+    }
+
     public void print(){
 
         Node forward = head;
@@ -105,17 +180,37 @@ public class DoublyLinkedList <T> implements Iterable<T> {
             forward = forward.next;
         }
 
-        Node backward = tail;
-
-        System.out.println(" Backward....");
-        while (backward != null){
-            System.out.println(STR."\{backward.value} -> ");
-            backward = backward.prev;
-        }
+//        Node backward = tail;
+//
+//        System.out.println(" Backward....");
+//        while (backward != null){
+//            System.out.println(STR."\{backward.value} -> ");
+//            backward = backward.prev;
+//        }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iterator<T>() {
+
+            Node<T> temp = head;
+
+            @Override
+            public boolean hasNext() {
+                return temp != null;
+            }
+
+            @Override
+            public T next() {
+                if (temp == null) {
+                    throw new NoSuchElementException();
+                }
+                T value = temp.value;
+                temp = temp.next;
+                return value;
+            }
+        };
     }
+
 }
