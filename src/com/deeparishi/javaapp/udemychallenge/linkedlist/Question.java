@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.selfpractice.linkedlist.singlyll;
+package com.deeparishi.javaapp.udemychallenge.linkedlist;
 
 public class Question {
 
