@@ -1,22 +1,21 @@
 package com.deeparishi.javaapp.udemychallenge.linkedlist;
 
+import java.util.Stack;
+
 public class Question {
 
     public static void main(String[] args) {
 
         LinkedList ll1 = new LinkedList();
-        ll1.insert(7);
         ll1.insert(1);
-        ll1.insert(6);
+        ll1.insert(2);
+        ll1.insert(3);
+        ll1.insert(4);
+        ll1.insert(5);
 
-        LinkedList ll2 = new LinkedList();
-        ll2.insert(5);
-        ll2.insert(9);
-        ll2.insert(2);
 
-        LinkedList ans = sumLists(ll1, ll2);
-        Node temp = ans.head;
-        for (int i = 0; i < ans.size; i++) {
+        Node temp = reverseBetween(ll1.head,2, 4);
+        while (temp != null){
             System.out.println(temp.value);
             temp = temp.next;
         }
@@ -88,6 +87,76 @@ public class Question {
         ll.size = size;
 
         return ll;
+    }
+
+    static Node reverse(Node node){
+
+        if(node.next == null){
+            return node;
+        }
+
+        Node newNode = reverse(node.next);
+        Node front = node.next;
+        front.next = node;
+        node.next = null;
+
+        return newNode;
+
+    }
+
+    boolean isPalindrome(Node head) {
+
+        if(head == null)
+            return false;
+
+        if(head.next == null)
+            return true;
+
+        Node temp = head;
+        Stack<Integer> st = new Stack<>();
+
+        while (temp != null){
+            st.push(temp.value);
+            temp = temp.next;
+        }
+
+        Node temp2 = head;
+        while (temp2 != null){
+            if(temp2.value != st.pop()){
+                return false;
+            }
+            temp2 = temp2.next;
+        }
+
+        return true;
+    }
+
+    static Node reverseBetween(Node head, int left, int right) {
+
+        Node curr = head;
+        int index = 1;
+        Stack<Integer> st = new Stack<>();
+
+        while (curr != null){
+            if(index >= left && index <= right){
+                st.push(curr.value);
+            }
+            index++;
+            curr = curr.next;
+        }
+
+        curr = head;
+        index = 1;
+
+        while (curr != null){
+            if(index >= left && index <= right){
+                curr.value = st.pop();
+            }
+            curr = curr.next;
+            index++;
+        }
+
+        return head;
     }
 }
 
