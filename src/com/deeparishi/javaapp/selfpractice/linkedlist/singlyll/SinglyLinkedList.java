@@ -213,6 +213,17 @@ public class SinglyLinkedList<T> implements Iterable<T> {
         return head;
     }
 
+    public void reverseRecursive(Node node){
+        if(node == tail){
+            node = tail;
+            return;
+        }
+        reverseRecursive(node.next);
+        tail.next = node;
+        tail = node;
+        node.next = null;
+    }
+
     public boolean isListInLoop() {
         if (head == null) {
             return false;
