@@ -179,15 +179,38 @@ public class DoublyLinkedList <T> implements Iterable<T> {
             System.out.println(STR."\{forward.value} -> ");
             forward = forward.next;
         }
-
-//        Node backward = tail;
-//
-//        System.out.println(" Backward....");
-//        while (backward != null){
-//            System.out.println(STR."\{backward.value} -> ");
-//            backward = backward.prev;
-//        }
     }
+
+    public Node mergeSorted(Node a1, Node b1){
+
+        Node a = a1;
+
+        Node head = null;
+        Node tail = null;
+
+        while(a != null){
+            Node node = new Node();
+            node.value = a.value;
+            if(head == null){
+                head = node;
+                tail = node;
+            }else{
+                tail.next = node;
+                tail = node;
+            }
+        }
+
+        Node b = b1;
+        Node temp = head;
+
+        while(b != null){
+
+            Node node = new Node();
+            node.value = b.value;
+        }
+        return null;
+    }
+
 
     @SuppressWarnings("unchecked")
     @Override
