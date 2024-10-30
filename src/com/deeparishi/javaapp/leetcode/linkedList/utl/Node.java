@@ -12,10 +12,17 @@ public class Node {
 
     public Node random;
 
+    public int key;
+
     public  Node(){
 
     }
     public Node (int val){
+        this.value = val;
+    }
+
+    public Node(int key, int val){
+        this.key = key;
         this.value = val;
     }
 
