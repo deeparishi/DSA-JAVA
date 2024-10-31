@@ -26,6 +26,17 @@ public class Node {
         this.value = val;
     }
 
+    public static void printList(Node node) {
+        while (node != null) {
+            System.out.print(node.value);
+            if (node.next != null) {
+                System.out.print(" -> ");
+            }
+            node = node.next;
+        }
+        System.out.println();
+    }
+
 //    Node(int val, Node next) { this.value = val; this.next = next; }
 
 }

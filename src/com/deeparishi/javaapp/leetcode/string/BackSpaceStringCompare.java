@@ -16,10 +16,9 @@ public class BackSpaceStringCompare {
 
             if (listA.isEmpty() && c != '#') {
                 listA.add(c);
-            }
-            else if (c == '#' && !listA.isEmpty()) {
+            } else if (c == '#' && !listA.isEmpty()) {
                 listA.removeLast();
-            } else if(c != '#') {
+            } else if (c != '#') {
                 listA.add(c);
             }
         }

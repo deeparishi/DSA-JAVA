@@ -12,7 +12,7 @@ public class RemoveGreaterNode {
         l1.next.next = new Node(13);
         l1.next.next.next = new Node(3);
         l1.next.next.next.next = new Node(8);
-        Node res = removeNodesRecursive(l1, 0);
+        Node res = removeNodesRecursive(l1);
         printList(res);
     }
 
@@ -62,11 +62,11 @@ public class RemoveGreaterNode {
         System.out.println();
     }
 
-    static Node removeNodesRecursive(Node node, int maxSoFar) {
+    static Node removeNodesRecursive(Node node) {
 
         if(node == null) return null;
 
-        node.next = removeNodesRecursive(node.next, maxSoFar);
+        node.next = removeNodesRecursive(node.next);
 
         int max = Math.max(
                 node.value, node.next != null ? node.next.value : Integer.MIN_VALUE
