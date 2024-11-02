@@ -1,5 +1,6 @@
 package com.deeparishi.javaapp.leetcode.trie;
 
+import com.deeparishi.javaapp.leetcode.trie.utl.Trie;
 import com.deeparishi.javaapp.selfpractice.trie.utls.Node;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class CompleteString {
 
     public static void main(String[] args) {
 
-        List<String> words = List.of("n", "ninja", "ninj","ni", "nin","ninga");
+        List<String> words = List.of("abc", "bc", "ab", "qwe");
         System.out.println(completeString(6, words));
     }
 
@@ -36,43 +37,4 @@ public class CompleteString {
         return longest;
     }
 
-}
-
-class Trie{
-
-     Node root;
-
-    public Trie(){
-        root = new Node();
-    }
-
-    public  void insert(String words){
-        Node temp = root;
-        for (int i = 0; i < words.length(); i++) {
-
-            if(!temp.containsKey(words.charAt(i))){
-                temp.put(words.charAt(i), new Node());
-            }
-            temp = temp.get(words.charAt(i));
-        }
-        temp.setEnd();
-    }
-
-
-    public boolean checkIfPrefixExists(String word) {
-
-        Node temp = root;
-        boolean flag = true;
-
-        for (int i = 0; i < word.length(); i++) {
-            if (temp.containsKey(word.charAt(i))){
-                temp = temp.get(word.charAt(i));
-                flag = flag && temp.isEnd();
-            }
-            else return false;
-        }
-
-        return flag;
-
-    }
 }

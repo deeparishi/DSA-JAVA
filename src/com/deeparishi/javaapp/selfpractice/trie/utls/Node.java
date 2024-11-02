@@ -1,5 +1,9 @@
 package com.deeparishi.javaapp.selfpractice.trie.utls;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Node {
 
     Node[] links = new Node[26];
@@ -10,6 +14,9 @@ public class Node {
 
     int countPrefix = 0;
 
+    List<String> suggestions = new ArrayList<>();
+
+    public List<Integer> index = new ArrayList<>();
 
     public boolean containsKey(char c) {
 
@@ -66,5 +73,23 @@ public class Node {
             if(link != null) return false;
         }
         return true;
+    }
+
+    public List<String> getSuggestions(){
+        return suggestions;
+    }
+
+    public void setSuggestions(List<String> suggestions){
+        this.suggestions = suggestions;
+    }
+
+    public void addSuggestion(String word) {
+        if (suggestions.size() < 3) {
+            suggestions.add(word);
+        } else if (word.compareTo(suggestions.get(2)) < 0) {
+            suggestions.remove(2);
+            suggestions.add(word);
+        }
+        Collections.sort(suggestions);
     }
 }
