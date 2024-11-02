@@ -59,4 +59,12 @@ public class Node {
     public Node[] getAllChildren(){
         return links;
     }
+
+    public boolean isLeaf(){
+
+        for (Node link : links){
+            if(link != null) return false;
+        }
+        return true;
+    }
 }
