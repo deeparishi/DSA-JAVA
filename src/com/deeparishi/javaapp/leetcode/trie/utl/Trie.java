@@ -13,6 +13,7 @@ public class Trie {
         root = new Node();
     }
 
+
     public void insert(String word) {
 
         Node temp = root;
@@ -119,10 +120,19 @@ public class Trie {
         return temp.index;
     }
 
-    public boolean query(char letter) {
+
+    public boolean query(StringBuilder letter) {
 
         Node temp = root;
-        boolean result = temp.containsKey(letter);
-        return result;
+        String l = letter.toString();
+
+        for(int i = letter.length()-1; i >= 0; i--){
+            char ch = letter.charAt(i);
+            if(!temp.containsKey(ch)) return false;
+            temp = temp.get(ch);
+            if(temp.isEnd()) return true;
+        }
+
+        return false;
     }
 }

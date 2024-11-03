@@ -18,6 +18,8 @@ public class Node {
 
     public List<Integer> index = new ArrayList<>();
 
+    public int value = 0;
+
     public boolean containsKey(char c) {
 
         return links[c - 'a'] != null;
@@ -31,55 +33,55 @@ public class Node {
         return links[c - 'a'];
     }
 
-    public void setEnd(){
+    public void setEnd() {
         flag = true;
     }
 
-    public boolean isEnd(){
+    public boolean isEnd() {
         return flag;
     }
 
-    public void increaseEnd(){
+    public void increaseEnd() {
         cntEndsWith++;
     }
 
-    public void decreaseEnd(){
+    public void decreaseEnd() {
         cntEndsWith--;
     }
 
-    public void increasePrefix(){
+    public void increasePrefix() {
         countPrefix++;
     }
 
-    public void decreasePrefix(){
+    public void decreasePrefix() {
         countPrefix--;
     }
 
-    public int getCountPrefix(){
+    public int getCountPrefix() {
         return countPrefix;
     }
 
-    public int getCntEndsWith(){
+    public int getCntEndsWith() {
         return cntEndsWith;
     }
 
-    public Node[] getAllChildren(){
+    public Node[] getAllChildren() {
         return links;
     }
 
-    public boolean isLeaf(){
+    public boolean isLeaf() {
 
-        for (Node link : links){
-            if(link != null) return false;
+        for (Node link : links) {
+            if (link != null) return false;
         }
         return true;
     }
 
-    public List<String> getSuggestions(){
+    public List<String> getSuggestions() {
         return suggestions;
     }
 
-    public void setSuggestions(List<String> suggestions){
+    public void setSuggestions(List<String> suggestions) {
         this.suggestions = suggestions;
     }
 
