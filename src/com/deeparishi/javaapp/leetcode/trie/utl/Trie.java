@@ -135,4 +135,16 @@ public class Trie {
 
         return false;
     }
+
+    public boolean canBeBuilt(String word) {
+        Node node = root;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            node = node.get(ch);
+            if (node == null || !node.isEnd()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
