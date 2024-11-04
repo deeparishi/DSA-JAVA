@@ -11,9 +11,6 @@ public class CountDistinctSubstring {
 
     static int countDistinctSubString(String s){
 
-        int a = 8;
-        a = a>>3;
-        System.out.println("a" + a);
         int cnt = 1;
         Node root = new Node();
 

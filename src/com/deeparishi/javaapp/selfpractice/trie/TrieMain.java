@@ -3,6 +3,7 @@ package com.deeparishi.javaapp.selfpractice.trie;
 public class TrieMain {
 
     public static void main(String[] args) {
+
         Trie trie = new Trie();
 //        trie.insert("apple");
 //        trie.insert("apps");
@@ -30,6 +31,7 @@ public class TrieMain {
         System.out.println(trie.countWordsEqualTo("vivo"));
         System.out.println(trie.countStartingWith("app"));
         System.out.println(trie.countWordsEqualTo("vivo"));
+        System.out.println("Test data "+trie.startsWith("vm"));
         trie.erase("samsung");
         System.out.println("After samsung erase "+trie.countWordsEqualTo("samsung"));
     }

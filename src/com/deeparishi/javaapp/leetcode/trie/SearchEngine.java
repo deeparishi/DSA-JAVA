@@ -12,7 +12,8 @@ public class SearchEngine {
 
     public static void main(String[] args) {
 
-        System.out.println(suggestedProducts(new String[]{"mobile","mouse","moneypot","monitor","mousepad"}, "mouse"));
+        System.out.println(suggestedProducts(new String[]
+                {"mobile","mouse","moneypot","monitor","mousepad"}, "mouse"));
     }
 
     static List<List<String>> suggestedProducts(String[] products, String searchWord) {
