@@ -1,7 +1,6 @@
 package com.deeparishi.javaapp.leetcode.trie;
 
-import com.deeparishi.javaapp.selfpractice.trie.Trie;
-import com.deeparishi.javaapp.selfpractice.trie.utls.Node;
+import com.deeparishi.javaapp.dsaconcepts.trie.utls.Node;
 
 // https://leetcode.com/problems/design-add-and-search-words-data-structure/description/
 

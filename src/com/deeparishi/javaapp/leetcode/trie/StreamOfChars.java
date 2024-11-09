@@ -1,7 +1,6 @@
 package com.deeparishi.javaapp.leetcode.trie;
 
 import com.deeparishi.javaapp.leetcode.trie.utl.Trie;
-import com.deeparishi.javaapp.selfpractice.trie.utls.Node;
 
 //https://leetcode.com/problems/stream-of-characters/submissions/?envType=problem-list-v2&envId=trie&difficulty=HARD
 

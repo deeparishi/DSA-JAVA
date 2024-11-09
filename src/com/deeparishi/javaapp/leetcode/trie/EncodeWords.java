@@ -2,7 +2,7 @@ package com.deeparishi.javaapp.leetcode.trie;
 
 //https://leetcode.com/problems/short-encoding-of-words/description/?envType=problem-list-v2&envId=trie&difficulty=MEDIUM
 
-import com.deeparishi.javaapp.selfpractice.trie.utls.Node;
+import com.deeparishi.javaapp.dsaconcepts.trie.utls.Node;
 
 import java.util.*;
 

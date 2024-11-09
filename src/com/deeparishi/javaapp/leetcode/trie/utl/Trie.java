@@ -1,6 +1,6 @@
 package com.deeparishi.javaapp.leetcode.trie.utl;
 
-import com.deeparishi.javaapp.selfpractice.trie.utls.Node;
+import com.deeparishi.javaapp.dsaconcepts.trie.utls.Node;
 
 import java.util.ArrayList;
 import java.util.List;
