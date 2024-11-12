@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.dsaconcepts.tree.basictree;
+package com.deeparishi.javaapp.dsaconcepts.tree.binarytree.basictree;
 
 import java.util.ArrayList;
 

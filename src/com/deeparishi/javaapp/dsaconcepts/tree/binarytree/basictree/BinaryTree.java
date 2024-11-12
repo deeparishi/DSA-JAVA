@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.dsaconcepts.tree.basictree;
+package com.deeparishi.javaapp.dsaconcepts.tree.binarytree.basictree;
 
 public class BinaryTree {
 
