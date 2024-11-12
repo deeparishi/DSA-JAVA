@@ -95,26 +95,26 @@ public class BinaryTreeLL {
 
 
     //Delete a node
+    String deleteNode(String value) {
 
-    String deleteNode(String value){
-
-        if(root == null) return null;
+        if (root == null) return null;
         Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             BinaryTreeNode curr = queue.remove();
-            if(curr.data.equals(value)){
+            if (curr.data.equals(value)) {
                 curr.data = getDeepestNode().data;
                 deleteDeepestNode();
                 return curr.data;
             }
-            if (curr.left != null)  queue.add(curr.left);
-            if(curr.right != null)  queue.add(curr.right);
+            if (curr.left != null) queue.add(curr.left);
+            if (curr.right != null) queue.add(curr.right);
         }
 
         return null;
     }
+
     BinaryTreeNode getDeepestNode() {
         Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
