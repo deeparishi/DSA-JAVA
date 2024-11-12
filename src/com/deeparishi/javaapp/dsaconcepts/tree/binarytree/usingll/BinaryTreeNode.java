@@ -8,4 +8,12 @@ public class BinaryTreeNode {
 
     BinaryTreeNode right;
 
+    BinaryTreeNode(){
+
+    }
+
+    BinaryTreeNode(String data){
+        this.data = data;
+    }
+
 }

@@ -4,12 +4,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BinaryTreeLL binaryTree = new BinaryTreeLL();
-        binaryTree.preOrder(getBinaryTreeNode());
+//        BinaryTreeLL binaryTree = new BinaryTreeLL();
+//        binaryTree.preOrder(getBinaryTreeNode());
+//        System.out.println();
+//        binaryTree.inOrder(getBinaryTreeNode());
+//        System.out.println();
+//        binaryTree.postOrder(getBinaryTreeNode());
+//        System.out.println();
+//        binaryTree.levelOrder(getBinaryTreeNode());
+//        System.out.println();
+
+        BinaryTreeLL binaryTree2 = new BinaryTreeLL();
+        binaryTree2.insert("A1");
+        binaryTree2.insert("A2");
+        binaryTree2.insert("A3");
+        binaryTree2.insert("A4");
+        binaryTree2.insert("A5");
+        binaryTree2.insert("A6");
+        binaryTree2.insert("A7");
+        binaryTree2.insert("A8");
+        binaryTree2.insert("A9");
+
+        binaryTree2.levelOrder(binaryTree2.root);
         System.out.println();
-        binaryTree.inOrder(getBinaryTreeNode());
+        System.out.println(binaryTree2.deleteNode("A5"));
         System.out.println();
-        binaryTree.postOrder(getBinaryTreeNode());
+        binaryTree2.levelOrder(binaryTree2.root);
 
 
     }
