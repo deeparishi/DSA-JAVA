@@ -50,8 +50,8 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee employee) {
-        if(this.age > employee.getAge()) return 1;
-        else if (this.age < employee.getAge())  return -1;
+        if (this.age > employee.getAge()) return 1;
+        else if (this.age < employee.getAge()) return -1;
         return 0;
     }
 }
