@@ -17,9 +17,7 @@ public class Main {
         heap.insert(10);
 
         heap.print();
-
         System.out.println(heap.remove());
-
         heap.print();
 
         System.out.println(heap.heapSort());
