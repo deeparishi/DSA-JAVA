@@ -7,9 +7,11 @@ public class GraphNode {
 
     public String name;
 
-    int index;
+    public int index;
 
     public List<GraphNode> neighbours;
+
+    public boolean isVisited;
 
     public GraphNode(String name, int index, List<GraphNode> neighbours) {
         this.name = name;
