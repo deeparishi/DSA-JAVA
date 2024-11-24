@@ -1,4 +1,6 @@
-package com.deeparishi.javaapp.leetcode.graph.utls;
+package com.deeparishi.javaapp.leetcode.graph;
+
+import com.deeparishi.javaapp.leetcode.graph.utls.Node;
 
 import java.util.HashMap;
 import java.util.Map;

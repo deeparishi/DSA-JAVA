@@ -1,6 +1,8 @@
 package com.deeparishi.javaapp.leetcode.graph;
 
 
+import com.deeparishi.javaapp.leetcode.graph.utls.Pair;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -37,11 +39,11 @@ public class NoOfIsland {
         int n = grid.length;
         int m = grid[0].length;
 
-        Queue<Pairs> pairsQueue = new LinkedList<>();
-        pairsQueue.add(new Pairs(row, col));
+        Queue<Pair> pairsQueue = new LinkedList<>();
+        pairsQueue.add(new Pair(row, col));
 
         while (!pairsQueue.isEmpty()) {
-            Pairs pair = pairsQueue.poll();
+            Pair pair = pairsQueue.poll();
 
             int newRow = pair.first;
             int newCol = pair.second;
@@ -53,7 +55,7 @@ public class NoOfIsland {
                     if (nRow >= 0 && nRow < n && nCol >= 0 && nCol < m &&
                             grid[nRow][nCol] == '1' && !visited[nRow][nCol]) {
                         visited[nRow][nCol] = true;
-                        pairsQueue.add(new Pairs(newRow, nCol));
+                        pairsQueue.add(new Pair(newRow, nCol));
                     }
 
                 }
@@ -100,17 +102,5 @@ public class NoOfIsland {
         dfs(grid, row + 1, col - 1, visited); // Bottom-Left
         dfs(grid, row + 1, col + 1, visited); // Bottom-Right
 
-    }
-}
-
-class Pairs{
-
-    int first;
-
-    int second;
-
-    public Pairs(int first, int second) {
-        this.first = first;
-        this.second = second;
     }
 }
