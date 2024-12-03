@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //https://www.geeksforgeeks.org/problems/find-the-number-of-islands/1?page=1&category=Graph&sortBy=submissions
-
+//https://leetcode.com/problems/number-of-islands/?envType=problem-list-v2&envId=breadth-first-search
 public class NoOfIsland {
 
     public static void main(String[] args) {
