@@ -8,10 +8,25 @@ import java.util.List;
 public class EventualSafeStateBFS {
 
     public static void main(String[] args) {
+        int[][] graph = {
+                {1},
+                {2},
+                {3},
+                {4, 5},
+                {6},
+                {6},
+                {7},
+                {},
+                {1, 9},
+                {10},
+                {8},
+                {9}
+        };
 
+        System.out.println(eventualSafeNodes(graph));
     }
 
-    public List<Integer> eventualSafeNodes(int[][] graph) {
+    public static List<Integer> eventualSafeNodes(int[][] graph) {
 
         int row = graph.length;
         boolean[] visited = new boolean[row];
@@ -22,19 +37,19 @@ public class EventualSafeStateBFS {
             if(!visited[i])
                 dfs(i, visited, pathVisited, checkmate, graph);
         }
-        
+
         List<Integer> safeNodes =  new ArrayList<>();
 
         for (int i = 0; i < row; i++) {
             if(checkmate[i] == 1)
-                safeNodes.add(checkmate[i]);
+                safeNodes.add(i);
         }
 
         return safeNodes;
     }
 
-    private boolean dfs(int val, boolean[] visited, boolean[] pathVisited,
-                     int[] checkmate, int[][] graph) {
+    private static boolean dfs(int val, boolean[] visited, boolean[] pathVisited,
+                               int[] checkmate, int[][] graph) {
 
         visited[val] = true;
         pathVisited[val] = true;
@@ -43,7 +58,7 @@ public class EventualSafeStateBFS {
             if (!visited[neighbour]) {
                 if (dfs(neighbour, visited, pathVisited, checkmate, graph))
                     return true;
-            } else if (!pathVisited[neighbour]) {
+            } else if (pathVisited[neighbour]) {
                 return true;
             }
         }
