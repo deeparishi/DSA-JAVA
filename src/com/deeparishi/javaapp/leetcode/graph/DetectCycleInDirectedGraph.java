@@ -2,6 +2,8 @@ package com.deeparishi.javaapp.leetcode.graph;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 //https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
 
@@ -16,13 +18,12 @@ public class DetectCycleInDirectedGraph {
             adj.add(new ArrayList<>());
         }
 
-        // Add edges to the graph
         adj.get(0).add(1);
         adj.get(1).add(2);
-        adj.get(2).add(0); // Cycle here
+//        adj.get(2).add(0);
         adj.get(2).add(3);
 
-        System.out.println(isCyclic(V, adj));
+        System.out.println(isCyclicBFS(V, adj));
     }
 
     public static boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
@@ -31,7 +32,7 @@ public class DetectCycleInDirectedGraph {
         boolean[] pathVisited = new boolean[V];
 
         for (int i = 0; i < V; i++) {
-            if(!visited[i]) {
+            if (!visited[i]) {
                 if (dfs(i, visited, pathVisited, adj))
                     return true;
             }
@@ -45,9 +46,9 @@ public class DetectCycleInDirectedGraph {
         visited[val] = true;
         pathVisited[val] = true;
 
-        for(Integer neighbour : adj.get(val)){
-            if(!visited[neighbour]){
-                if(dfs(neighbour, visited, pathVisited, adj))
+        for (Integer neighbour : adj.get(val)) {
+            if (!visited[neighbour]) {
+                if (dfs(neighbour, visited, pathVisited, adj))
                     return true;
             } else if (pathVisited[neighbour]) {
                 return true;
@@ -56,5 +57,35 @@ public class DetectCycleInDirectedGraph {
 
         pathVisited[val] = false;
         return false;
+    }
+
+    public static boolean isCyclicBFS(int V, ArrayList<ArrayList<Integer>> adj) {
+
+        int[] inDegree = new int[V];
+        for (int i = 0; i < V; i++) {
+            for (Integer neighbour : adj.get(i))
+                inDegree[neighbour]++;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < V; i++) {
+            if (inDegree[i] == 0)
+                queue.add(i);
+        }
+
+        int count = 0;
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            count++;
+
+            for (Integer neighbour : adj.get(node)) {
+                inDegree[neighbour]--;
+                if (inDegree[neighbour] == 0)
+                    queue.add(neighbour);
+            }
+        }
+
+        return count != V;
     }
 }

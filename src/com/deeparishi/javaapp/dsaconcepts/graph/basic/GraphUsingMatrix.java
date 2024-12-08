@@ -19,6 +19,11 @@ public class GraphUsingMatrix {
 
     public void addConnection(int a, int b) {
         connections[a][b] = 1;
+        connections[b][a] = 1;
+    }
+
+    public void addDirectedEdge(int i, int j) {
+        connections[i][j] = 1;
     }
 
     public void print() {

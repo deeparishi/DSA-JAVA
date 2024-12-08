@@ -4,7 +4,7 @@ import java.util.Stack;
 
 //https://www.udemy.com/course/java-data-structures-and-algorithms-masterclass/learn/quiz/6171990#learning-tools
 
-class BalancedParenthesis {
+class   BalancedParenthesis {
 
      public static void main(String[] args) {
          System.out.println(isBalanced("()[{}()]"));

@@ -13,6 +13,8 @@ public class GraphNode {
 
     public boolean isVisited;
 
+    public GraphNode parent;
+
     public GraphNode(String name, int index, List<GraphNode> neighbours) {
         this.name = name;
         this.index = index;
