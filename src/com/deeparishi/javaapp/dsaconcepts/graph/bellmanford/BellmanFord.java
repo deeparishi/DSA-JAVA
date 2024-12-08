@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.dsaconcepts.bellmanford;
+package com.deeparishi.javaapp.dsaconcepts.graph.bellmanford;
 
 import com.deeparishi.javaapp.dsaconcepts.graph.utls.WeightedGraphNode;
 

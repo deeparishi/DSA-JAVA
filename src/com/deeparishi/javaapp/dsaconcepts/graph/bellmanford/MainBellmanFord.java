@@ -1,6 +1,5 @@
-package com.deeparishi.javaapp.dsaconcepts.bellmanford;
+package com.deeparishi.javaapp.dsaconcepts.graph.bellmanford;
 
-import com.deeparishi.javaapp.dsaconcepts.graph.dijikistra.Dijkistra;
 import com.deeparishi.javaapp.dsaconcepts.graph.utls.WeightedGraphNode;
 
 import java.util.ArrayList;
@@ -36,8 +35,6 @@ public class MainBellmanFord {
 
         dijkistra.bellmanFordAlgo(weightedGraphNodes.getFirst());
         negativeCycle();
-
-
 
     }
 
