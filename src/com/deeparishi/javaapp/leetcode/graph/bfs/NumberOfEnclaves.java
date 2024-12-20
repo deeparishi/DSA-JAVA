@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.leetcode.graph;
+package com.deeparishi.javaapp.leetcode.graph.bfs;
 
 
 //https://leetcode.com/problems/number-of-enclaves/

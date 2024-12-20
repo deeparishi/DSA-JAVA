@@ -1,9 +1,8 @@
-package com.deeparishi.javaapp.leetcode.graph;
+package com.deeparishi.javaapp.leetcode.graph.dfs;
 
 //https://www.geeksforgeeks.org/problems/number-of-provinces/1?page=1&category=Graph&sortBy=submissions
 
 import java.util.ArrayList;
-import java.util.stream.IntStream;
 
 public class NoOfProvinces {
     public static void main(String[] args) {

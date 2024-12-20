@@ -1,0 +1,126 @@
+
+STRING COMMANDS
+
+SET 1 dev
+  ( 1 - Key, dev- Value)
+  (To add the value for that key)
+  (the SET command adds a key-value pair, and using the same key again will overwrite the existing value with the new one)
+
+SET 1 "hello World"
+  ( 1 - Key, "hello World"- Value)
+  (If our value contains space then give it on quotes)
+  (the SET command adds a key-value pair, and using the same key again will overwrite the existing value with the new one)
+
+SETEX 2 90 dev
+  (2 - key, 90 - expiry time, dev - value)
+  (Add value for that key and set expiration time)
+
+KEYS *
+  (To see all the key in database)
+
+GET 1
+  (1 - key)
+  (To retrieve the value for that key)
+
+DEL 1
+  (1 - key)
+  (To delete the key)
+
+FLUSHALL
+  (To delete all the keys in database)
+
+CLEAR
+  (To clear the terminal)
+
+TTL 1
+  (1 - Key)
+  (To get the expiry time of that key)
+
+SETNX 1 tester
+   ( 1 - Key, tester- Value)
+   (It'll create the new key as 1 and set the value tester, if the key 1 not exists already)
+
+STRLEN 1
+    (1 - Key)
+    (To get the length of the value for that key)
+
+MSET 1 dev 2 tester 3 client 4 support
+    (numbers - key, others - value)
+    (To add the List of key-value pairs)
+
+PSETEX 1 50 dev
+    (1 - key, 50 - milliseconds, dev - value)
+    (Add value for that key and set expiration time in milliseconds)
+
+DECR 1
+    (1 - key)
+    (It'll decrement the corresponding value by 1)
+    (If value not Integer means it'll throw, value is not an integer or out of range)
+
+INCR 1
+    (1 - key)
+    (It'll increment the corresponding value by 1)
+    (If value not Integer means it'll throw, value is not an integer or out of range)
+
+INCRBY 1 5
+    (1 - key)
+    (5 - How much you want to increment)
+    (It'll increment the corresponding value by 5)
+
+DECRBY 1 5
+    (1 - key)
+    (5 - How much you want to decrement)
+    (It'll decrement the corresponding value by 5)
+
+APPEND 1 " world"
+    (1 - key)
+    (It'll append the value in last)
+
+--------------------------------------------------------------------------------------------------------
+
+HASHES COMMANDS
+
+HMSET stud-2 name dev age 10 class 5
+
+    stud-2  =>  Key    Value
+                name   dev
+                age    10
+                class  5
+    stud-2 - Key and other are key and value pairs
+
+HGET stud-2 name
+    (stud-2 key for redis, name - key)
+    T0 get the value of the field
+
+HGETALL stud-2
+    To retrieve all the data for the stud-2 key
+
+HMGET stud-1 name age
+    To retrieve the name and age data for the stud-1 key
+
+HEXISTS stud-1 surname
+    (stud-1  key for redis, surname - key)
+    (It'll check the key exists or not for stud-1)
+
+HDEL stud-2 name
+    (stud-2 key for redis, name - key)
+    T0 delete the value of the field
+
+HSETNX stud-2 name redis
+    stud-2  =>  Key    Value
+                name   redis
+    It''ll set the value for the key if not exists
+
+HKEYS stud-1
+    Retrieve all the keys present for stud-1
+
+HINCRBY stud-1 age
+    Increase the age by 1
+
+HVALS stud-1
+    Retrieve all the values present for stud-1
+
+HLEN stud-1
+    Retrieve the count od fields present on stud-1
+
+------------------------------------------------------------------------------

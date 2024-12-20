@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.leetcode.graph;
+package com.deeparishi.javaapp.leetcode.graph.dfs;
 
 //https://www.geeksforgeeks.org/problems/flood-fill-algorithm1856/1?page=1&category=Graph&sortBy=submissions
 

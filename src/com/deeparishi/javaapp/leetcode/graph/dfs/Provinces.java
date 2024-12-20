@@ -1,9 +1,4 @@
-package com.deeparishi.javaapp.leetcode.graph;
-
-import com.deeparishi.javaapp.dsaconcepts.graph.utls.GraphNode;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.deeparishi.javaapp.leetcode.graph.dfs;
 
 //https://leetcode.com/problems/number-of-provinces/description/?envType=problem-list-v2&envId=graph
 public class Provinces {

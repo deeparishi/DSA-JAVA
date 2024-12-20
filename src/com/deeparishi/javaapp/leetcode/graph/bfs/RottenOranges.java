@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.leetcode.graph;
+package com.deeparishi.javaapp.leetcode.graph.bfs;
 
 import com.deeparishi.javaapp.leetcode.graph.utls.Pair;
 

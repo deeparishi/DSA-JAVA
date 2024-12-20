@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.leetcode.graph;
+package com.deeparishi.javaapp.leetcode.graph.dfs;
 
 //https://leetcode.com/problems/find-eventual-safe-states/
 

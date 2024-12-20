@@ -33,7 +33,7 @@ public class MainBellmanFord {
         dijkistra.addWeightedEdge(4, 6, 9);
         dijkistra.addWeightedEdge(5, 6, 7);
 
-        dijkistra.bellmanFordAlgo(weightedGraphNodes.getFirst());
+//        dijkistra.bellmanFordAlgo(weightedGraphNodes.getFirst());
         negativeCycle();
 
     }
