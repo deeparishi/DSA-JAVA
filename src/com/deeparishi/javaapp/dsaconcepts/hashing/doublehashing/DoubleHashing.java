@@ -28,7 +28,7 @@ public class DoubleHashing {
     //Creates a new HashTable and does ReHashing
     public void rehashKeys(String newStringToBeInserted) {
         noOfCellsUsedInHashTable = 0;
-        ArrayList<String> data = new ArrayList<String>();
+        ArrayList<String> data = new ArrayList<>();
         for (String s : hashTable) {
             if (s != null)
                 data.add(s);
@@ -42,10 +42,10 @@ public class DoubleHashing {
 
     // Display the hash table
     public void display() {
-        if(hashTable == null) {
+        if (hashTable == null) {
             System.out.println("\nHashTable does not exits !");
             return;
-        }else {
+        } else {
             System.out.println("\n---------- HashTable ---------");
             for (int i = 0; i < hashTable.length; i++) {
                 System.out.println("Index:" + i + ".   Key:" + hashTable[i]);
@@ -69,7 +69,7 @@ public class DoubleHashing {
         char ch[];
         ch = x.toCharArray();
         int i, sum;
-        for (sum = 0, i=0; i<x.length(); i++) {
+        for (sum = 0, i = 0; i < x.length(); i++) {
             sum += ch[i];
         }
         while (sum > hashTable.length) {
@@ -81,7 +81,7 @@ public class DoubleHashing {
     }
 
     public double getLoadFactor() {
-        return noOfCellsUsedInHashTable * 1.0/hashTable.length;
+        return noOfCellsUsedInHashTable * 1.0 / hashTable.length;
     }
 
     public void insert(String value) {
@@ -91,14 +91,14 @@ public class DoubleHashing {
         } else {
             int x = simpleASCIIHashFunction(value, hashTable.length);
             int y = secondHashFunction(value, hashTable.length);
-            for (int i = 0; i<hashTable.length; i++) {
-                int newIndex = (x + i*y) % hashTable.length;
+            for (int i = 0; i < hashTable.length; i++) {
+                int newIndex = (x + i * y) % hashTable.length;
                 if (hashTable[newIndex] == null) {
                     hashTable[newIndex] = value;
-                    System.out.println(value +" inserted at location:" +newIndex);
+                    System.out.println(value + " inserted at location:" + newIndex);
                     break;
                 } else {
-                    System.out.println(newIndex +" is occupied. Tryin next empty index..");
+                    System.out.println(newIndex + " is occupied. Tryin next empty index..");
                 }
 
             }
@@ -106,8 +106,4 @@ public class DoubleHashing {
         noOfCellsUsedInHashTable++;
 
     }
-
-
-
-
 }

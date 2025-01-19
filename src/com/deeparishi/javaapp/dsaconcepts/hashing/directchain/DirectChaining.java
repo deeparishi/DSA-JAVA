@@ -28,14 +28,14 @@ public class DirectChaining {
         return total % size;
     }
 
-    public void insert(String input){
+    public void insert(String input) {
 
         int index = asciiModForString(input, hashTable.length);
 
-        if(hashTable[index] == null){
+        if (hashTable[index] == null) {
             hashTable[index] = new LinkedList<>();
             hashTable[index].add(input);
-        }else{
+        } else {
             hashTable[index].add(input);
         }
     }
