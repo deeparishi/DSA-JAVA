@@ -15,6 +15,7 @@ public class DisjointSet {
         for (int i = 0; i < size; i++) {
             parent[i] = i;
             rank[i] = 0;
+            this.size[i] = 1;
         }
     }
 
@@ -42,7 +43,7 @@ public class DisjointSet {
         }
     }
 
-    void unionBySize(int x, int y) {
+    public void unionBySize(int x, int y) {
 
         int rootX = find(x);
         int rootY = find(y);
@@ -51,11 +52,29 @@ public class DisjointSet {
 
         if (size[rootX] < size[rootY]) {
             parent[rootX] = rootY;
-            size[rootY] = rootX;
+            size[rootY] += size[rootX];
         } else {
             parent[rootY] = rootX;
-            size[rootX] = rootY;
+            size[rootX] += size[rootY];
         }
+    }
+
+    public boolean unionBySizeWithReturnType(int x, int y) {
+
+        int rootX = find(x);
+        int rootY = find(y);
+
+        if (rootX == rootY) return false;
+
+        if (size[rootX] < size[rootY]) {
+            parent[rootX] = rootY;
+            size[rootY] += size[rootX];
+        } else {
+            parent[rootY] = rootX;
+            size[rootX] += size[rootY];
+        }
+
+        return true;
     }
 
     public int countComponents() {
@@ -66,5 +85,21 @@ public class DisjointSet {
             }
         }
         return count;
+    }
+
+    public int getParent(int idx) {
+        return parent[idx];
+    }
+
+    public int getRank(int idx) {
+        return rank[idx];
+    }
+
+    public int getSize(int idx) {
+        return size[idx];
+    }
+
+    public int[] getSize() {
+        return size;
     }
 }

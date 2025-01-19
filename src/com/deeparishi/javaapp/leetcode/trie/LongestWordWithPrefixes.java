@@ -19,14 +19,13 @@ class LongestWordWithPrefixes {
 
         Trie trie = new Trie();
 
-        List<String> wordsList = Arrays.asList(words);
 
-        for (String word : wordsList)
+        for (String word : words)
             trie.insert(word);
 
         String longest = "";
 
-        for (String word : wordsList){
+        for (String word : words){
             if(trie.isValid(word)){
                 if(word.length() > longest.length() ||(word.length() == longest.length() && word.compareTo(longest) < 0)){
                     longest = word;

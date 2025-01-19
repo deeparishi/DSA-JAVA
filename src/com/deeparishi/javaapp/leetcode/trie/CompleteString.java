@@ -24,11 +24,10 @@ public class CompleteString {
 
         for (int i = 0; i < n; i++) {
 
-            if (trie.checkIfPrefixExists(words.get(i))){
+            if (trie.checkIfPrefixExists(words.get(i))) {
                 if (words.get(i).length() > longest.length())
                     longest = words.get(i);
-                else if (words.get(i).length() == longest.length() &&
-                            words.get(i).compareTo(longest) < 0)
+                else if (words.get(i).length() == longest.length() && words.get(i).compareTo(longest) < 0)
                     longest = words.get(i);
             }
         }

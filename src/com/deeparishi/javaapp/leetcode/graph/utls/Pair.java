@@ -2,11 +2,19 @@ package com.deeparishi.javaapp.leetcode.graph.utls;
 
 public class Pair {
 
+    public Pair(int first, int second, double distance) {
+        this.distance = distance;
+        this.second = second;
+        this.first = first;
+    }
+
     public int row;
 
     public int col;
 
     public int time;
+
+    public double distance;
 
     public Pair(int row, int col, int time) {
         this.row = row;

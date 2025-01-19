@@ -3,7 +3,7 @@ package com.deeparishi.javaapp.ZohoExam;
 public class Spiral2 {
 
     public static void main(String[] args) {
-        int n = 7; // Change this value to adjust the size of the spiral
+        int n = 7;
         printSpiral(n);
     }
 
@@ -28,30 +28,34 @@ public class Spiral2 {
                 spiral[row][col] = num;
                 row++;
             }
+            row--;
+            col--;
 
             // Move left
             for (int i = 0; i < num - 1; i++) {
                 spiral[row][col] = num;
                 col--;
             }
+            col++;
+            row--;
 
             // Move up
             for (int i = 0; i < num - 2; i++) {
                 spiral[row][col] = num;
                 row--;
             }
+            row++;
+            col++;
 
             num -= 2;
-            col++;
         }
 
         // Print the spiral
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.print(spiral[i][j]);
+                System.out.print(spiral[i][j] + " ");
             }
             System.out.println();
         }
     }
 }
-

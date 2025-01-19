@@ -11,8 +11,7 @@ public class AlienDictionary {
 
     public static void main(String[] args) {
         String[] dict = new String[]{"baa","abcd","abca","cab","cad"};
-        System.out.println(findOrder(dict, 4));
-
+        System.out.println(findOrderIsPresentOrNot(dict, 4));
     }
 
     public static String findOrder(String[] dict, int k) {
@@ -66,7 +65,6 @@ public class AlienDictionary {
         while (!queue.isEmpty()) {
 
             int node = queue.poll();
-            ;
             ans.add(node);
 
             for (int neighbour : adj.get(node)) {
