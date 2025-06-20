@@ -1,0 +1,38 @@
+
+Kernel/OS Thread:
+   Also known as OS thread.
+   Threads are managed and scheduled by OS
+
+Platform Thread:
+   Each Java platform thread is associated 1 to 1 with an OS/Kernel thread
+   Whenever we creating new Thread() that invoke platform thread then
+     platform thread is a one who will assign this work to OS thread
+
+Virtual Thread:
+
+  - A virtual thread is a lightweight thread in Java.
+
+  - Unlike traditional threads that map directly to operating system (OS) threads,
+     virtual threads are managed entirely by the JVM (Java Virtual Machine).
+
+  - Virtual threads behave like regular Java threads (you can use the same Thread API),
+     but they are not backed by OS threads.
+
+  - Virtual threads are not directly tied to an operating system thread,
+      allowing thousands (or millions) of virtual threads to run concurrently.
+
+
+Feature	               Virtual Threads	                   Traditional Threads
+---------------------------------------------------------------------------------
+Resource Consumption   Very low per thread                  High (OS thread for each Java thread)
+
+Number of Threads      Millions                             Thousands
+
+Blocking Operations    Non-blocking (lightweight)           Blocking (expensive)
+
+Use Case               High-concurrency, I/O-bound tasks    Low-concurrency, CPU-bound tasks
+
+Debugging              Easier with modern tooling           Standard
+
+
+
