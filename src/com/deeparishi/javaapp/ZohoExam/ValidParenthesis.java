@@ -2,7 +2,7 @@ package com.deeparishi.javaapp.ZohoExam;
 
 import java.util.Stack;
 
-public class ValidParanthesis {
+public class ValidParenthesis {
     public static void main(String[] args) {
         String s = "({[]})";
         System.out.println(isValid(s));
@@ -19,10 +19,10 @@ public class ValidParanthesis {
                     return false;
                 }
 
-                char openbrac = result.pop();
-                if (c == '}' && openbrac != '{' ||
-                        c == ']' && openbrac != '[' ||
-                        c == ')' && openbrac != '(') {
+                char open = result.pop();
+                if (c == '}' && open != '{' ||
+                        c == ']' && open != '[' ||
+                        c == ')' && open != '(') {
                     return false;
                 }
             }

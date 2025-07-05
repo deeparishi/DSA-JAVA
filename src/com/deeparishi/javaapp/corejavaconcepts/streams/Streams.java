@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Streams {
 
@@ -21,10 +22,11 @@ public class Streams {
     private static void findTotalNumOfElementsInList() {
 
         System.out.println("-------findTotalNumOfElementsInList------");
-        List<Integer> integerList = List.of(2,2,4,5,6,7,4,3,5,21,133,54,44);
-        System.out.println("Using List " + integerList.stream().count());;
+        List<Integer> integerList = List.of(2, 2, 4, 5, 6, 7, 4, 3, 5, 21, 133, 54, 44);
+        System.out.println("Using List " + integerList.stream().count());
+        ;
 
-        int[] arr = {1, 3,5,21,133,5};
+        int[] arr = {1, 3, 5, 21, 133, 5};
         System.out.println("using array " + IntStream.of(arr).count());
     }
 
@@ -81,5 +83,28 @@ public class Streams {
         System.out.println();
     }
 
+    public static void moveZerosToEndWithStreams() {
+        moveZerosToEndWithStreams(new int[]{0, 1, 0, -1, 0, 4});
+        moveZerosToEndWithStreams(new int[]{0, 0, 0, 0});
+        moveZerosToEndWithStreams(new int[]{1, 2, 3, 4});
+        moveZerosToEndWithStreams(new int[]{});
+        moveZerosToEndWithStreams(new int[]{0});
+        moveZerosToEndWithStreams(new int[]{1});
+        moveZerosToEndWithStreams(new int[]{0, 1, 0, 0, 1});
+        moveZerosToEndWithStreams(new int[]{2, 0, 2, 0, 2});
+        moveZerosToEndWithStreams(new int[]{0, 0, 1, 0, 2, 3});
+    }
 
+    public static void moveZerosToEndWithStreams(int[] arr) {
+
+        List<Integer> numbers = Arrays.stream(arr)
+                .boxed()
+                .toList();
+
+        List<Integer> movedZeros = Stream.concat(
+                numbers.stream().filter(n -> n > 0), numbers.stream().filter(n -> n == 0)
+        ).toList();
+
+        System.out.println(movedZeros);
+    }
 }

@@ -3,6 +3,8 @@ package com.deeparishi.javaapp.leetcode.slidingwindow;
 // https://leetcode.com/problems/longest-substring-without-repeating-characters
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingChars {
 
@@ -53,7 +55,6 @@ public class LongestSubstringWithoutRepeatingChars {
                 if (!hash[ch]) {
                     hash[ch] = true;
                     currLen++;
-//                    int currLen = j - i + 1;
                     maxLen = Math.max(currLen, maxLen);
                 } else
                     break;
@@ -61,5 +62,24 @@ public class LongestSubstringWithoutRepeatingChars {
         }
 
         return maxLen;
+    }
+
+    public static int lengthOfLongestSubstringV0(String s) {
+
+        int len = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            Set<Character> set = new HashSet<>();
+            set.add(s.charAt(i));
+            for (int j = i + 1; j < s.length(); j++) {
+                if (!set.contains(s.charAt(j))) {
+                    set.add(s.charAt(j));
+                } else
+                    break;
+            }
+            len = Math.max(set.size(), len);
+        }
+
+        return len;
     }
 }
