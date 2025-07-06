@@ -6,8 +6,9 @@ public class ThreeSum {
 
     public static void main(String[] args) {
 
-        System.out.println(threeSum(new int[] {-1,0,1,2,-1,-4}));
+        System.out.println(threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
     }
+
     public static List<List<Integer>> threeSum(int[] nums) {
 
         Arrays.sort(nums);
@@ -20,11 +21,11 @@ public class ThreeSum {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j <nums.length ; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 int curr = nums[i] + nums[j];
-                if(map.containsKey(-1 *curr)){
-                    int k = map.get( -1 * curr);
-                    if(!used.contains(STR."\{nums[i]}:\{nums[j]}:\{nums[k]}") && k > i && k > j){
+                if (map.containsKey(-1 * curr)) {
+                    int k = map.get(-1 * curr);
+                    if (!used.contains(STR."\{nums[i]}:\{nums[j]}:\{nums[k]}") && k > i && k > j) {
                         result.add(Arrays.asList(nums[i], nums[j], nums[k]));
                         used.add(STR."\{nums[i]}:\{nums[j]}:\{nums[k]}");
                     }

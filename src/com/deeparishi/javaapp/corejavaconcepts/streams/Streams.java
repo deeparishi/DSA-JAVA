@@ -1,9 +1,7 @@
 package com.deeparishi.javaapp.corejavaconcepts.streams;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -23,11 +21,11 @@ public class Streams {
 
         System.out.println("-------findTotalNumOfElementsInList------");
         List<Integer> integerList = List.of(2, 2, 4, 5, 6, 7, 4, 3, 5, 21, 133, 54, 44);
-        System.out.println("Using List " + integerList.stream().count());
+        System.out.println(STR."Using List \{(long) integerList.size()}");
         ;
 
         int[] arr = {1, 3, 5, 21, 133, 5};
-        System.out.println("using array " + IntStream.of(arr).count());
+        System.out.println(STR."using array \{IntStream.of(arr).count()}");
     }
 
     public static void findIntersection() {
@@ -106,5 +104,25 @@ public class Streams {
         ).toList();
 
         System.out.println(movedZeros);
+    }
+
+    public static void sortMap() {
+        Map<Integer, Integer> map = Map.of(
+                1, 1,
+                2, 2,
+                5, 5,
+                4, 4,
+                3, 3);
+        Map<Integer, Integer> collect = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue,
+                        LinkedHashMap::new
+                ));
+
+        System.out.println(collect);
     }
 }
