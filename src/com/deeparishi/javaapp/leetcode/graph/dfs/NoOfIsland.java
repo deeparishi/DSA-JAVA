@@ -26,7 +26,7 @@ public class NoOfIsland {
             for (int col = 0; col < gridCol; col++) {
                 if(!visited[row][col] && grid[row][col] == '1'){
                     totalIsland++;
-                    dfs(row, col, visited, grid);
+                    bfs(row, col, visited, grid);
                 }
             }
         }
@@ -34,7 +34,7 @@ public class NoOfIsland {
         return totalIsland;
     }
 
-    private void dfs(int row, int col, boolean[][] visited, char[][] grid) {
+    private void bfs(int row, int col, boolean[][] visited, char[][] grid) {
         visited[row][col] = true;
         int n = grid.length;
         int m = grid[0].length;
