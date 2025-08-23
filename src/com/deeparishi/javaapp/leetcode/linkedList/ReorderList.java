@@ -12,57 +12,35 @@ public class ReorderList {
         head.next.next = new Node(3);
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
+        head.next.next.next.next.next = new Node(6);
 
-        reorderList(head);
+        ReorderList lr = new ReorderList();
+        lr.reorderList(head);
     }
 
-    public static void reorderList(Node head) {
-
-        Node slow = head;
-        Node fast = head;
-
-        while (fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-
-        Node firstpart = head;
-        Node secondPart = reverse(slow);
-        slow.next = null;
-
-        Node tempA = head;
-        Node tempB = secondPart;
-
-        while (secondPart != null){
-
-            tempA = firstpart.next;
-            tempB = secondPart.next;
-
-            firstpart.next = secondPart;
-            secondPart.next = tempA;
-            firstpart = tempA;
-            secondPart = tempB;
-        }
-
+    Node left;
+    boolean stop;
+    public void reorderList(Node head) {
+        left = head;
+        this.stop = false;
+        reorder(head);
     }
 
-    static Node reverse(Node head) {
-        if (head == null || head.next == null) {
-            return head;
+    public void reorder(Node right){
+        if(right == null) return;
+
+        reorder(right.next);
+
+        if(!stop){
+            Node temp = left.next;
+            left.next = right;
+            right.next = temp;
+            left = temp;
         }
 
-        Node current = head;
-        Node prev = null;
-        Node next;
-
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        if(left != null && left.next == right){
+            left.next = null;
+            stop = true;
         }
-
-        head = prev;
-        return head;
     }
 }

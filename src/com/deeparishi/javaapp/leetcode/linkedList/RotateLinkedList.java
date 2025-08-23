@@ -15,26 +15,26 @@ public class RotateLinkedList {
         ll.insert(4);
         ll.insert(5);
 
-        Node temp = rotateList(ll.head, 13);
+        Node temp = rotateList(ll.head, 2);
 
-        while (temp != null){
+        while (temp != null) {
             System.out.println(temp.value);
             temp = temp.next;
         }
 
     }
 
-    static Node rotateList(Node head, int k){
+    static Node rotateList(Node head, int k) {
 
         int len = 1;
         Node tail = head;
 
-        while (tail.next != null){
+        while (tail.next != null) {
             tail = tail.next;
             len++;
         }
 
-        if(k % len == 0) return head;
+        if (k % len == 0) return head;
 
         k %= len;
 
@@ -49,7 +49,7 @@ public class RotateLinkedList {
 
     static Node findNthNode(Node head, int i) {
         int cnt = 1;
-        while (head != null){
+        while (head != null) {
             if (cnt == i)
                 return head;
             head = head.next;
