@@ -1,7 +1,5 @@
 package com.deeparishi.javaapp.warmup;
 
-import com.deeparishi.javaapp.practice.ListNode;
-import com.deeparishi.javaapp.practice.Node;
 
 import java.util.*;
 import java.util.stream.IntStream;

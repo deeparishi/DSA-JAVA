@@ -7,6 +7,8 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static com.deeparishi.javaapp.corejavaconcepts.streams.utils.Employee.initV2;
+
 
 public class GroupingBy {
 
@@ -16,6 +18,7 @@ public class GroupingBy {
         players();
         firstNonRepeatedCharacter("Java articles are Awesome");
         countOfEachElement(Arrays.asList("AA", "BB", "AA", "CC"));
+        comprehensiveGrouping();
     }
 
     private static void countOfEachElement(List<String> elements) {
@@ -37,7 +40,6 @@ public class GroupingBy {
                         ));
 
         System.out.println(charCountMap);
-
 
 
     }
@@ -138,7 +140,6 @@ public class GroupingBy {
         Players player = new Players();
 
 
-
         Map<String, Long> playerMap = player.getPlayers().stream()
                 .collect(Collectors.groupingBy(
                         Players::getTeamName,
@@ -212,5 +213,60 @@ public class GroupingBy {
 
         System.out.println(ch2);
         System.out.println(ch3);
+    }
+
+    /**
+     * Find the top 3 departments with the highest average salary among employees older than 30,
+     * who know both 'Java' and 'Spring'. For each of those departments,
+     * list the names of employees sorted by salary descending
+     **/
+    private static void comprehensiveGrouping() {
+
+        List<Employee> employees = initV2();
+        List<String> mandate = Arrays.asList("Java", "Spring");
+
+        List<Employee> filteredEmployee = employees
+                .stream()
+                .filter(e -> new HashSet<>(e.skills).containsAll(mandate))
+                .filter(e -> e.age >= 30)
+                .toList();
+
+        Map<String, Double> avgSalaryByDept = filteredEmployee.stream()
+                .collect(Collectors.groupingBy(e -> e.dept,
+                        Collectors.averagingDouble(e -> e.salary))
+                );
+
+        Set<String> top3Dept = avgSalaryByDept
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .limit(3)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
+
+        Map<String, List<Employee>> finalList = filteredEmployee
+                .stream()
+                .filter(e -> top3Dept.contains(e.dept))
+                .collect(Collectors.groupingBy(e ->
+                                        e.dept,
+                                Collectors.collectingAndThen(
+                                        Collectors.toList(),
+                                        l -> l.stream()
+                                                .sorted(Comparator.comparingDouble(Employee::getSalaryInDecimal).reversed())
+                                                .toList()
+                                )
+                        )
+                );
+
+        finalList.forEach((key, value) -> {
+            System.out.println(key);
+            System.out.println("AVG Salary of " + key + ":" + avgSalaryByDept.get(key));
+            value.forEach(n -> System.out.println(n.name + " " + n.salary));
+            System.out.println();
+        });
+    }
+
+    private void staticVideo() {
+
     }
 }

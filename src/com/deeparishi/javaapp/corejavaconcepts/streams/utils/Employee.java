@@ -1,6 +1,7 @@
 package com.deeparishi.javaapp.corejavaconcepts.streams.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
@@ -8,31 +9,24 @@ import java.util.stream.IntStream;
 public class Employee {
 
     public String name;
-
     public Integer age;
-
-    public  Long salary;
-
+    public Long salary;
     public String dept;
-
     public List<Employee> employees = new ArrayList<>();
+    public double salaryInDecimal;
+    public List<String> skills;
+    List<String> departments = List.of("IT", "HR", "QA", "SUPPORT", "DevOPS");
+    List<String> names = List.of("Jack", "Ajit", "Rahul", "Priya", "Sweta", "Hari");
 
+    public Employee(){}
 
-
-
-
-
-
-
-
-
-
-
-
-
-    List<String> departments =  List.of("IT", "HR", "QA", "SUPPORT", "DevOPS");
-
-    List<String> names = List.of("Jack","Ajit", "Rahul", "Priya", "Sweta", "Hari");
+    public Employee(String name, int age, String dept, double salaryInDecimal, List<String> skills) {
+        this.name = name;
+        this.age = age;
+        this.dept = dept;
+        this.salaryInDecimal = salaryInDecimal;
+        this.skills = skills;
+    }
 
     public void init() {
 
@@ -52,16 +46,28 @@ public class Employee {
         }
     }
 
+    public static List<Employee> initV2() {
+        return Arrays.asList(
+                new Employee("Alice", 35, "HR", 70000, new ArrayList<>()),
+                new Employee("Bob", 40, "IT", 120000, new ArrayList<>()),
+                new Employee("Charlie", 31, "Finance", 90000, new ArrayList<>()),
+                new Employee("David", 45, "IT", 110000, new ArrayList<>()),
+                new Employee("Eva", 33, "Finance", 95000, new ArrayList<>()),
+                new Employee("Frank", 29, "HR", 60000, new ArrayList<>()),
+                new Employee("Grace", 38, "Sales", 85000, new ArrayList<>())
+        );
+    }
+
+    public double getSalaryInDecimal() {
+        return salaryInDecimal;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                ", dept='" + dept + '\'' +
-                ", employees=" + employees +
-                ", departments=" + departments +
-                ", names=" + names +
-                '}';
+        return STR."Employee{name='\{name}', age=\{age}, salary=\{salary}, dept='\{dept}', employees=\{employees}, departments=\{departments}, names=\{names}}";
     }
 }

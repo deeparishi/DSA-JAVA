@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.miscellaneous.videosharingplatform;
+package com.deeparishi.javaapp.lld.videosharingplatform;
 
 import java.util.Arrays;
 

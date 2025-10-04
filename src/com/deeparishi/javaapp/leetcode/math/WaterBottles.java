@@ -6,10 +6,10 @@ public class WaterBottles {
 
     public static void main(String[] args) {
 
-        System.out.println(numWaterBottles(15, 4));
+        System.out.println(numWaterBottlesV1(15, 4));
     }
 
-    public static int numWaterBottles(int numBottles, int numExchange) {
+    public static int numWaterBottlesV1(int numBottles, int numExchange) {
 
         int total = numBottles;
 
@@ -21,5 +21,19 @@ public class WaterBottles {
         }
 
         return total;
+    }
+
+    public static int numWaterBottlesV2(int fullBottles, int exchange) {
+        return fullBottles + tradeBottle(fullBottles, exchange);
+    }
+
+    private static int tradeBottle(int emptyBottles, int exchange) {
+        if (emptyBottles < exchange)
+            return 0;
+
+        int newFull = emptyBottles / exchange;
+        int remainingEmptyBottle = emptyBottles % exchange;
+
+        return newFull + tradeBottle(newFull + remainingEmptyBottle, exchange);
     }
 }
