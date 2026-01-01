@@ -31,9 +31,7 @@ public class ExpandString {
         for (char a : input.toCharArray()) {
             if (Character.isLetter(a)) {
                 if (current != '\0') {
-                    for (int i = 0; i < repeat; i++) {
-                        result.append(current);
-                    }
+                    result.append(String.valueOf(current).repeat(repeat));
                 }
                 current = a;
                 repeat = 0;
@@ -42,9 +40,7 @@ public class ExpandString {
             }
         }
         if (current != '\0') {
-            for (int i = 0; i < repeat; i++) {
-                result.append(current);
-            }
+            result.append(String.valueOf(current).repeat(repeat));
         }
         return result.toString();
     }

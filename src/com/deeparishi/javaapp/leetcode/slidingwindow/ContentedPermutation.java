@@ -9,16 +9,16 @@ public class ContentedPermutation {
     public static void main(String[] args) {
 
 //        System.out.println(findSubstringOptimized("wordgoodgoodgoodbestword", new String[]{"word","good","best","good"}));
-        System.out.println(findSubstringOptimized("barfoofoobarthefoobarman", new String[]{"bar","foo","the"}));
+        System.out.println(findSubstringV3("barfoofoobarthefoobarman", new String[]{"bar", "foo", "the"}));
     }
 
-    static List<Integer> findSubstringOptimized(String s, String[] words) {
+    // Optimal Approach
+    static List<Integer> findSubstringV3(String s, String[] words) {
 
         List<Integer> result = new ArrayList<>();
 
-        if (s == null || s.isEmpty() || words == null || words.length == 0) {
+        if (s == null || s.isEmpty() || words == null || words.length == 0)
             return result;
-        }
 
         int wordLength = words[0].length();
         int wordCount = words.length;
@@ -64,21 +64,24 @@ public class ContentedPermutation {
         return result;
     }
 
-    static List<Integer> findSubstring(String s, String[] words) {
+
+    // Permutation and swap approach
+    static List<Integer> findSubstringV2(String s, String[] words) {
 
         Set<String> possibleWords = generateAllConcatenations(words);
         int a = s.length();
         int b = possibleWords.iterator().next().length();
         List<Integer> result = new ArrayList<>();
 
-        for (int i = 0; i <= a - b; i++){
+        for (int i = 0; i <= a - b; i++) {
             String str = s.substring(i, i + b);
-            if(possibleWords.contains(str))
+            if (possibleWords.contains(str))
                 result.add(i);
         }
 
         return result;
     }
+
     public static Set<String> generateAllConcatenations(String[] words) {
         Set<String> result = new HashSet<>();
         permute(words, 0, result);
@@ -105,5 +108,50 @@ public class ContentedPermutation {
         String temp = words[i];
         words[i] = words[j];
         words[j] = temp;
+    }
+
+
+    // Backtracking approach
+    public static List<Integer> findSubstringV1(String s, String[] words) {
+        Set<String> combos = generateAllCombos(words);
+        int totalLen = 0;
+        for (String word : words) totalLen += word.length();
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i <= s.length() - totalLen; i++) {
+            String sub = s.substring(i, i + totalLen);
+            if (combos.contains(sub)) result.add(i);
+        }
+
+
+        return result;
+    }
+
+    public static Set<String> generateAllCombos(String[] words) {
+        Set<String> result = new LinkedHashSet<>();
+        boolean[] used = new boolean[words.length];
+        backtrack(words, used, new ArrayList<>(), result);
+        return result;
+    }
+
+    private static void backtrack(String[] words, boolean[] used,
+                                  List<String> current, Set<String> result) {
+
+        if (current.size() == words.length) {
+            result.add(String.join("", current));
+            return;
+        }
+
+        for (int i = 0; i < words.length; i++) {
+            if (used[i])
+                continue;
+
+            used[i] = true;
+            current.add(words[i]);
+            backtrack(words, used, current, result);
+
+            current.removeLast();
+            used[i] = false;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.deeparishi.javaapp.ZohoExam;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SpiralMatrix {
@@ -33,46 +34,39 @@ public class SpiralMatrix {
     }
 
 
-    public static List<Integer> spiralMatrix(int[][] arr) {
-        List<Integer> a = new ArrayList<>();
-        if (arr[0].length == 0 && arr.length == 0) {
-            return a;
+    public static List<Integer> spiralMatrix(int[][] matrix) {
+        if (matrix[0].length == 0 && matrix.length == 0) {
+            return Collections.emptyList();
         }
-        int cl = 0;
-        int rl = 0;
-        int cu = arr[0].length - 1;
-        int ru = arr.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+        int top = 0;
+        int bottom = matrix.length - 1;
 
-        while (rl <= ru && cl <= cu) {
+        List<Integer> list = new ArrayList<>();
 
-            for (int i = cl; i <= cu; i++) {
-                a.add(arr[rl][i]);
-                //System.out.println(arr[rl][i]);
-            }
-            rl++;
+        while(left <= right && top <= bottom) {
 
-            for (int i = rl; i <= ru; i++) {
-                a.add(arr[i][cu]);
-                //System.out.println(arr[i][cu]);
-            }
-            cu--;
+            for(int i = left; i <= right; i++)
+                list.add(matrix[top][i]);
+            top++;
 
-            if (cl > cu || rl > ru) {
-                break;
-            }
+            for(int i = top; i <= bottom; i++)
+                list.add(matrix[i][right]);
+            right--;
 
-            for (int i = cu; i >= cl; i--) {
-                a.add(arr[ru][i]);
-            }
-            ru--;
+            if(left > right || top > bottom) break;
 
-            for (int i = ru; i >= rl; i--) {
-                a.add(arr[i][cl]);
-            }
-            cl++;
+            for(int i = right; i >= left; i--)
+                list.add(matrix[bottom][i]);
+            bottom--;
+
+            for(int i = bottom; i >= top; i--)
+                list.add(matrix[i][left]);
+            left++;
         }
 
-        return a;
+        return list;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.deeparishi.javaapp.lld.videosharingplatform;
 
+import com.deeparishi.javaapp.lld.videosharingplatform.model.Video;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;

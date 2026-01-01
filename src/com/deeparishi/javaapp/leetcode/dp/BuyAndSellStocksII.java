@@ -25,8 +25,8 @@ public class BuyAndSellStocksII {
 
         int profit;
         if (buy) {
-            int buyAndMove = -prices[idx] + maxProfitWithoutDP(prices, idx + 1, true); // I can buy or
-            int skipAndMove = maxProfitWithoutDP(prices, idx + 1, false); // I can skip
+            int buyAndMove = -prices[idx] + maxProfitWithoutDP(prices, idx + 1, false); // I can buy or
+            int skipAndMove = maxProfitWithoutDP(prices, idx + 1, true); // I can skip
             profit = Math.max(buyAndMove, skipAndMove);
         } else {
             int sellAndMove = prices[idx] + maxProfitWithoutDP(prices, idx + 1, true); // I can sell or
@@ -38,7 +38,7 @@ public class BuyAndSellStocksII {
     }
 
     public static int maxProfitWithDp(int[] prices, int idx,
-                                         int buy, Integer[][] dp) {
+                                      int buy, Integer[][] dp) {
 
         if (idx == prices.length)
             return 0;

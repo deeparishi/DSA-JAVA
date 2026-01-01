@@ -1,10 +1,12 @@
-package com.deeparishi.javaapp.lld.videosharingplatform;
+package com.deeparishi.javaapp.lld.videosharingplatform.service;
+
+import com.deeparishi.javaapp.lld.videosharingplatform.VideoSharingPlatform;
 
 import java.util.Arrays;
 
 // https://leetcode.ca/2022-05-26-2254-Design-Video-Sharing-Platform/
 
-public class Client {
+public class VideoApplication {
 
     public static void main(String[] args) {
 

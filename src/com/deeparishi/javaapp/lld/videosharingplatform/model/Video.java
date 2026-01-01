@@ -1,4 +1,4 @@
-package com.deeparishi.javaapp.lld.videosharingplatform;
+package com.deeparishi.javaapp.lld.videosharingplatform.model;
 
 public class Video {
 

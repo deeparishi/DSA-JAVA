@@ -25,7 +25,7 @@ public class FirstLargestFirstSmallest {
             newArr[i] = arr[left];
         }
         for (int j = 0; j < newArr.length; j++) {
-            System.out.print(newArr[j]);
+            System.out.println(newArr[j]);
         }
 
     }

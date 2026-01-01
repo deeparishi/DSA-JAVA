@@ -14,7 +14,7 @@ public class CountVowelStringInRanges {
                 {1, 1}
         };
 
-        System.out.println(Arrays.toString(vowelStrings(words, queries)));
+        System.out.println(Arrays.toString(vowelStrings2(words, queries)));
     }
 
     public static int[] vowelStrings(String[] words, int[][] queries) {
@@ -47,7 +47,7 @@ public class CountVowelStringInRanges {
         return res;
     }
 
-    public int[] vowelStrings2(String[] words, int[][] queries) {
+    public static int[] vowelStrings2(String[] words, int[][] queries) {
 
         List<Character> vowels = List.of('a', 'e', 'i', 'o', 'u');
         int[] isVowelString = new int[words.length];
