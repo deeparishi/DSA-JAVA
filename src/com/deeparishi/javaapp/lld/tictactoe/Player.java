@@ -1,26 +1,29 @@
 package com.deeparishi.javaapp.lld.tictactoe;
 
+
 public class Player {
 
-    private final String name;
-    private final int row;
-    private final int col;
-
-    public Player(String name, int row, int col) {
+    public Player(String name, String symbol) {
         this.name = name;
-        this.row = row;
-        this.col = col;
+        this.symbol = symbol;
+    }
+
+    private String name;
+    private String symbol;
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
+    public void setName(String name) {
+        this.name = name;
     }
 }
