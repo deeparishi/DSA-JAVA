@@ -98,12 +98,12 @@ public class FriendService {
             System.out.println("2. Request Sent");
             int option = scanner.nextInt();
             switch (option) {
+                case 0:
+                    return;
                 case 1:
                     recievedRequests(loggedInUser, userMap);
                 case 2:
                     sentRequests(loggedInUser);
-                case 0:
-                    break;
             }
         }
     }

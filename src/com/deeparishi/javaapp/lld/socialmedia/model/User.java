@@ -7,15 +7,15 @@ import java.util.Set;
 
 public class User {
 
-    private int id;
-    private String name;
-    private int age;
-    private String location;
-    private LocalDate dob;
-    private Set<User> friends = new HashSet<>();
-    private Set<UserRequest> requestsSent = new HashSet<>();
-    private Set<UserRequest> requestRecieved = new HashSet<>();
-    private LocalDateTime createdAt;
+    private final int id;
+    private final String name;
+    private final int age;
+    private final String location;
+    private final LocalDate dob;
+    private final Set<User> friends = new HashSet<>();
+    private final Set<UserRequest> requestsSent = new HashSet<>();
+    private final Set<UserRequest> requestReceived = new HashSet<>();
+    private final LocalDateTime createdAt;
 
     public User(int id, String name, int age, String location, LocalDate dob) {
         this.id = id;
@@ -60,15 +60,15 @@ public class User {
     }
 
     public void addRecievedRequest(UserRequest request) {
-        requestRecieved.add(request);
+        requestReceived.add(request);
     }
 
     public Set<UserRequest> getRequestsRecieved() {
-        return requestRecieved;
+        return requestReceived;
     }
 
     public void removeRecievedReq(UserRequest request) {
-        requestRecieved.remove(request);
+        requestReceived.remove(request);
     }
 
     public void addSentRequest(UserRequest request) {
